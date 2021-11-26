@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = `Lorem LOREM ipsum dolor sit amet, consectetur adipisicing elit. Nulla iusto vitae, aliquid fugit quo omnis libero laboriosam rerum porro esse culpa autem voluptates minima, quas molestiae! Odio fugiat aut corporis.`
+        //console.log(str.length);
+        var newStr = str.slice(5);
+        // newStr = str.substring(2, 5);
+        // newStr = str.substr(3, 5);
+        // var reg = / /; new RegExp();
+        newStr = str.replace(/lorem/ig, '로렘').replace('.', '점') // i는 대소문자 구분없이 찾음, g는 전체 다 적용
+        newStr = str.charAt(10);
+        console.log(newStr);
+        newStr = str.charCodeAt(10);
+        console.log(newStr);
+
+        var person_no = [
+            '20200403-1681833',
+            '208504032785893',
+            '19950403/2786123',
+            '19880403-2684833',
+            '19990403*3682123'
+        ];
+        
+        var gg = check_gender(person_no[0]); 
+        console.log(gg)
+        
+
+        
+        
+        // console.log(check);
+        
+        function check_gender(check) {
+            
+            if((check.substring(0, 3) < 1999 && check.charAt(9) == 1) || (check.substring(0, 3) > 1999 && check.charAt(9) == 3)) {
+                return '남자'
+            } else if((check.substring(0, 3) < 1999 && check.charAt(9) == 2) || (check.substring(0, 3) > 1999 && check.charAt(9) == 4)) {
+                return '여자'
+            } else {
+                return '잘못된 번호입니다.'
+            }
+            //return false || 0 || '잘못된 번호입니다.';
+            
+            
+            console.log('------------------------------------')
+
+            // var spec = ['*', '/', '-'];
+
+            // var yy = birth.substring(0, 2);
+            // var over2000 = yy > 21 ? false : true;
+            // var gen = birth.slice(-7, -6); //1,2,3,4
+            // return false || 0 || '잘못된 번호입니다.';
+        }
+        
+
+
+    </script>
+</head>
+<body>
+    주민번호: <input type="text" id="jumin"><br>
+    남: <input type="radio" name="gender">
+    여: <input type="radio" name="gender">
+    잘못된번호: <input type="radio" name="gender">
+    <script>
+        var spec = ['*', '-', '/', '$', ' ']
+        document.getElementById('jumin').addEventListener('change', function() {
+            console.log(this.value);
+            var birth = this.value;
+            for(var str of spec) {
+                birth = birth.replace(str, '');
+            }
+            if(birth.length != 15)
+                console.log('잘못된 값입니다.') 
+                return;
+            
+            var gen = check_gender(birth)
+            var genders = document.querySelectorAll('input[name="gender"]');
+            if(gen == '남자') {
+                genders[0].checked = true;
+            } else if (gen == '여자') {
+                genders[1].checked = true;
+            } else {
+                genders[2].checked = true;
+            }
+            console.log(gen);
+        });
+    </script>
+</body>
+</html>

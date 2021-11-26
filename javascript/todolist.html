@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .buttons {
+            display: inline-block;
+            width: 200px;
+        }
+
+        #todo {
+            background-color: khaki;
+        }
+        #complete {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div id="add">
+        <header>
+            <h1>To Do list</h1>
+            <input type="text" name="text" id="text" >
+            <button id="new">추가</button>
+        </header>
+
+        <div id="wrapper">
+            <h3>To Do</h3>
+            <ul id="todo">
+                <!-- <li>Complete
+                    <div class="buttons">
+                        <button onclick="deleteFnc(event)">Delete</button>
+                        <button onclick="completeFnc(event)">Complete</button>
+                    </div>
+                </li> -->
+            </ul>
+
+            <h3>Completed</h3>
+            <ul id="complete">
+                <!-- <li>Complete
+                    <div class="buttons">
+                        <button onclick="deleteFnc(event)">Delete</button>
+                        <button onclick="returnFnc(event)">Return</button>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function completeFnc(e) {
+            var targetList = e.target.parentNode.parentNode;
+            targetList.children[0].innerHTML = '<button onclick="deleteFnc(event)">Delete</button> <button onclick="returnFnc(event)">Return</button>'
+            document.getElementById('complete').appendChild(targetList);
+        }
+        function returnFnc(e) {
+            var targetList = e.target.parentNode.parentNode;
+            targetList.children[0].innerHTML = '<button onclick="deleteFnc(event)">Delete</button> <button onclick="completeFnc(event)">Complete</button>'
+            document.getElementById('todo').appendChild(targetList);
+        }
+        function deleteFnc(e) {
+            var targetList = e.target.parentNode.parentNode;
+            var parent = targetList.parentNode;;
+            parent.removeChild(targetList);
+        }
+        
+        //등록
+        document.getElementById('new').addEventListener('click', function() {
+            var userInputValue = document.getElementById('text').value;
+            var li = document.createElement('li');
+            var val = document.createTextNode(userInputValue + ' ');
+            li.appendChild(val);
+            var div = document.createElement('div');
+            
+            div.setAttribute('class', 'buttons');
+            div.innerHTML = '<button onclick="deleteFnc(event)">Delete</button> <button onclick="completeFnc(event)">Complete</button>';
+            li.appendChild(div);
+            
+            document.getElementById('todo').appendChild(li);
+            // document.getElementById('complete').appendChild(li);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam01.html</title>
+    <style>
+        html {
+            display: flex;
+            justify-content: center;
+        }
+        body {
+            border: 1px solid red;
+            height: 950px;
+            width: 1260px;
+        }
+        header {
+            width: 1140px;
+            padding: 30px;
+            margin: 10px 5px 10px 30px;
+            background-color: rgb(230, 95, 207);
+        }
+        header>h2 {
+            font-size: 35px;
+        }
+        header>div.link {
+            margin-left: 40px;
+        }
+
+        section {
+            border: 1px solid black;
+            float: left;
+            margin: 30px;
+        }
+        section>div.news1>h4 {
+            margin-left: 10px;
+        }
+        section>div.news2>h4 {
+            margin-left: 10px;
+        }
+
+        section>div.news1>p {
+            width: 700px;
+            height: 190px;
+            background-color: yellow;
+            
+            margin: 20px;
+
+        }
+
+        section>div.news2>table {
+            width: 700px;
+            height: 150px;
+            margin: 20px;
+        }
+        section>div.news2>table>tbody>tr:nth-child(1) {
+            background-color: blue;
+            color: white;
+        }
+        section>div.news2>table>tbody>tr:nth-child(2) {
+            background-color: skyblue;
+        }
+        section>div.news2>table>tbody>tr:nth-child(4) {
+            background-color: skyblue;
+        }
+        section>div.news2>table>tbody>tr:nth-child(6) {
+            background-color: skyblue;
+        }
+        section>div.news2>table>tbody>tr:nth-child(3) {
+            background-color: rgb(47, 114, 202);
+        }
+        section>div.news2>table>tbody>tr:nth-child(5) {
+            background-color: rgb(47, 114, 202);
+        }
+        section>div.news2>table>tbody>tr:nth-child(7) {
+            background-color: rgb(47, 114, 202);
+        }
+        nav {
+            width: 395px;
+            height: 200px;
+            float: left;
+            margin: 30px;
+            background-color: gray;
+        }
+        nav>div {
+            margin-left: 20px;
+            width: 350px;
+        }
+        footer {
+            width: 1200px;
+            height: 150px;
+            border: 1px solid grey;
+            float: left;
+            margin: 10px 5px 10px 30px;
+        }
+        footer>div>h3 {
+            margin-top: 40px;
+            margin-left: 10px;
+        }
+        footer>div>p {
+            margin-left: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="online"></div>
+        <h2>ONLINE SSAFY</h2>
+        <div class="link">
+            <a href="">메뉴1</a>
+            <a href="">메뉴2</a>
+            <a href="">메뉴3</a>
+            <a href="">메뉴4</a>
+        </div>
+    </header>
+    <section>
+        <div class="news1">
+            <h4>기사 1</h4>
+            <p>휘장은 한글 '서울'을 서울의 산, 해 한강으로 나타내면서 전체적으로는 신명나는 사람의 모습을 형상화한 것으로 인간 중심도시를 지향하는 서울을 상징합니다. 자연 - 인간 - 도시의 맥락
+                속에서 녹색 산은 환경사랑, 청색 한강은 역사와 활력, 가운데 해는 미래의 비전과 희망을 함축하고, 이 세가지 요소를 붓터치로 자연스럽게 연결하여 서울의 이미지와 사람의 활력을 친근하게 느낄수
+                있도록 하였습니다.<br><br>
+                녹색 산은 환경사랑, 청색 한강은 역사와 활력, 가운데 해는 미래의 비전과 희망을 함축하고, 이 세가지 요소를 붓터치로 자연스럽게 연결하여 서울의 이미지와 사람의 활력을 친근하게 느낄 수 있도록 하였습니다.
+            </p>
+        </div>
+        <div class="news2">
+            <h4>기사 2</h4>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>번호</td>
+                        <td>제목</td>
+                        <td>작성자</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Make Insert date time customizable.</td>
+                        <td>강감찬</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Make date time order reversible for short</td>
+                        <td>장영실</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Add Insert Date/Time commands shortcut</td>
+                        <td>안중근</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Fix regression: no error message when locked</td>
+                        <td>김두한</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Make "Confirm Save All" dialog more clear:</td>
+                        <td>계백</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Improve JSON,PHP,PYTHON,CSS,BANNC and</td>
+                        <td>최무선</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <nav>
+        <div>
+            <h3>SIDEBAR</h3>
+            <p>모든 국민은 근로의 의무를 진다. 국가는 근로의 의무를 내용과 조건을 민주주의 원칙에 따라 법률로 정한다.</p>
+        </div>
+    </nav>
+    <footer>
+        <div>
+            <h3>Footer</h3>
+            <p>이 헌법시행 당시의 법령과 조약은 이 헌법에 위배되지 아니하는 한 그 효력을 지속한다.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

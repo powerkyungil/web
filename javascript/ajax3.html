@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            background-color: burlywood;
+        }
+    </style>
+    <script src="./createTable daummap.js"></script>
+    <script>
+        var fields = ['id', 'sido', 'sigungu', 'centerName', 'phoneNumber', 'address'];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var totalData = [];
+            var startCnt = 0,
+                endCnt = 0;
+
+            function showPage(e) {
+                var lbl = e.target.textContent; // 10page => 91~100번째 data
+                console.log(lbl)
+
+                //최초 1페이지가 보여지도록
+                if(!lbl) {
+                    lbl = '1';
+                }
+                // 버튼을 클릭했는지 체크
+                if(e.target.nodeType == 1) {
+                    var actives = document.querySelectorAll('#paging>button');
+                    for(var i=0; i<actives.length; i++) {
+                        actives[i].setAttribute('class', '')
+                    }
+                    e.target.setAttribute('class', 'active');
+                }
+
+                var startCnt = (lbl - 1) * 10 + 1; // 1~10 : 0~9
+                var endCnt = lbl * 10;
+
+                var filterData = totalData.filter((item, ind) => {
+                    return ind >= startCnt-1 && ind < endCnt;
+                });
+
+                // 이미 테이블이 있으면 기존것을 지우고 생성하는
+                var tableExist = document.querySelector('#show>table')
+                if(tableExist) { //존재하면
+                    tableExist.remove(); //삭제
+                }
+
+                var table = createTable(fields, filterData);
+                document.getElementById('show').appendChild(table);
+            }
+
+            var url =
+                `https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=283&serviceKey=hJMI1%2BRkwoC1uCbgyU%2FiDl3KFv1%2BSdWuDGc65MB1k5NetiZKxOuXmrRaKX6Q94RZxytTdWCBzR%2BYcVz02LauzQ%3D%3D`;
+            var xhtp = new XMLHttpRequest();
+            xhtp.open('get', url);
+            xhtp.send();
+            xhtp.onload = function () {
+                var data = JSON.parse(xhtp.responseText); //json text => object
+
+                // 페이지 처리를 위한 버튼 갯수 만큼 페이지
+                var totalPage = Math.ceil(data.totalCount / 10);
+                for (var i = 1; i < totalPage; i++) {
+                    var butn = document.createElement('button');
+                    butn.textContent = i;
+                    butn.addEventListener('click', showPage);
+                    document.getElementById('paging').appendChild(butn);
+                }
+                // 페이지
+                totalData = data.data;
+                showPage(event);
+                // var table = createTable(fields, data.data);
+                // document.getElementById('show').appendChild(table);
+            }
+            
+            // var table = createTable(fields, persons);
+            // document.getElementById('show').appendChild(table);
+        });
+    </script>
+</head>
+
+<body>
+    <div id="paging"></div>
+    <div id="show">
+
+    </div>
+</body>
+
+</html>

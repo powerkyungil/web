@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax.html</title>
+</head>
+
+<body>
+    <h3>시도 리스트</h3>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>facilityName</th>
+            <th>sigungu</th>
+            <th>sido</th>
+            <th>centerName</th>
+            <th>address</th>
+            <th>phoneNumber</th>
+        </tr>
+    </table>
+    <script>
+        // setTimeout(() => {
+        //     console.log('1');
+
+        //     setTimeout(() => {
+        //         console.log('2');
+
+        //         setTimeout(() => {
+        //             console.log('3');
+
+        //             setTimeout(() => {
+        //                 console.log('4');
+        //             }, 2000);
+
+        //         }, 2000);
+
+        //     }, 2000);
+
+        // }, 2000);
+
+        // setTimeout(() => {
+        //     console.log('1');
+        // }, 2000);
+
+        // setTimeout(() => {
+        //     console.log('2');
+        // }, 2000);
+
+        // setTimeout(() => {
+        //     console.log('3');
+        // }, 2000);
+
+        // setTimeout(() => {
+        //     console.log('4');
+        // }, 2000);
+        var url = `https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=283&returnType=XML&serviceKey=hJMI1%2BRkwoC1uCbgyU%2FiDl3KFv1%2BSdWuDGc65MB1k5NetiZKxOuXmrRaKX6Q94RZxytTdWCBzR%2BYcVz02LauzQ%3D%3D`;
+        var fields = ['id','facilityName', 'sigungu', 'sido', 'centerName', 'address', 'phoneNumber'];
+        var centerAry = [];
+        var xhtp = new XMLHttpRequest();
+        xhtp.onreadystatechange = function () {
+           
+            if (xhtp.readyState == 4) {
+                if (xhtp.status == 200) {
+                    var data = xhtp.responseXML;
+                    console.log(data);
+                    var records = data.getElementsByTagName('item');
+                    for(var i=0; i<records.length; i++) {
+                        var center = {}; 
+                        for(var field of fields) {
+                            //console.log(field, records[i].querySelector('[name="' + field + '"]').textContent;
+                            center[field] = records[i].querySelector('[name="' + field + '"]').textContent;
+                        }
+                        centerAry.push(center);
+                    }
+                    //시도 버튼 만들기
+                    var sidoAry = new Set();
+                    centerAry.forEach(item => {
+                        sidoAry.add(item.sido);
+                    });
+                    console.log(sidoAry);
+                    var sidoDiv = document.getElementById('sido');
+                    sidoAry.forEach(item => {
+                        var butn = document.createElement('button');
+                        butn.addEventListener('click', findSido);
+                        butn.textContent = item;
+                        sidoDiv.appendChild(butn);
+                    });
+
+                    function findSido(e) {
+                        var labl = e.target.textContent;
+                        console.log(labl)
+                        var filterAry = centerAry.filter((item) => {
+                        return item.sido == labl;
+                    })
+                    console.log(filterAry);
+                    }
+
+                    function sidoTable() {
+                        var table = document.createElement('table');
+                        var tbody = document.createElement('tbody');
+                        table.appendChild(tbody);
+                    }
+                   
+                    
+
+                        
+                }
+            }
+            
+        }
+        xhtp.open('get', url);
+        xhtp.send();
+
+    </script>
+
+</body>
+
+</html>

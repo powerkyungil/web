@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/basic.html</title>
+    <link rel="stylesheet" href="calendar.css">
+    <!-- <script src="basic.js"></script> -->
+
+</head>
+
+<body>
+
+    <input type="text" id="user_id" value="12345"><br>
+    <button onclick="getIdFunc()">id값가져오기</button>
+
+
+    <button onclick="drawTable()">클릭</button>
+    <div id='show'>
+    </div>
+
+    <script>
+        function getIdFunc() {
+            var userId = document.getElementById('user_id');
+            console.log(userId.value);
+        }
+        var students = [{
+                name: "홍길동",
+                math: 80,
+                eng: 90
+            },
+            {
+                name: "김수미",
+                math: 85,
+                eng: 85
+            },
+            {
+                name: "김민수",
+                math: 90,
+                eng: 75
+            }
+        ];
+
+        function drawTable() {
+
+            var table = document.createElement('table');
+            table.setAttribute('border', '1');
+            var thead = document.createElement('thead');
+            var tbody = document.createElement('tbody');
+
+            table.appendChild(thead);
+            //타이틀 부분 생성
+            var tr = document.createElement('tr');
+            for (var val in students[0]) {
+                var td = document.createElement('th');
+                td.textContent = val;
+                tr.appendChild(td);
+            }
+            thead.appendChild(tr);
+            table.appendChild(thead);
+            //데이터 부분 생성.
+            var tbody = document.createElement('tbody');
+            for (var student of students) {
+                var tr = document.createElement('tr');
+                for (var filed in student) {
+                    var td = document.createElement('td');
+                    td.textContent = student[filed];
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            }
+            table.appendChild(tbody);
+            //화면에 보여주기
+            var divshow = document.getElementsByTagName('div');
+            divshow[0].appendChild(table);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //비동기방식
+        //Asynchronous Javascript and Xml
+        // setTimeout(() => {
+        //     console.log('1');
+        // }, 2000);
+
+        // setTimeout(() => {
+        //     console.log('2');
+        // }, 1000);
+
+        // setTimeout(() => {
+        //     console.log('3');
+        // }, 2000);
+        // setTimeout(() => {
+        //     console.log('4');
+        // }, 2000);
+
+        // console.log('--------------------------------')
+
+        // setTimeout(() => {
+        //     console.log('1');
+
+        //     setTimeout(() => {
+        //     console.log('2');
+
+        //         setTimeout(() => {
+        //         console.log('3');
+
+        //         }, 2000);
+
+        //     }, 1000);
+
+        // }, 2000);
+        console.log('1');
+        //XML, Json => 서버 <-> 클라이언트 데이터주고 받는 포맷
+        var xhtp = new XMLHttpRequest(); // 서버에 있는 파일을 읽어들임
+        xhtp.onreadystatechange = function() {
+            //console.log(xhtp.responseText, xhtp.readyState, xhtp.status);
+            if(xhtp.readyState == 4) {
+                if (xhtp.status == 200) {
+                console.log('2');
+                //console.log(xhtp.responseText);
+                //var data = JSON.parse(xhtp.responseText);
+                var data = xhtp.responseXML;
+                console.log(data.getElementsByTagName('record')[0].children[3].textContent);
+
+                // data.forEach((item, ind, ary) => {
+                //     var p = document.createElement('p');
+                //     p.innerHTML = item.first_name;
+                    
+                //     document.body.appendChild(p);
+                // });
+
+                }
+            }
+        }
+        xhtp.open('get', 'mydata.html');
+        xhtp.send();
+        console.log('3');
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>america.html</title>
+    <style>
+        * {
+            background-color: rgb(236, 238, 236);
+        }
+        a:visited {
+            color: black; text-decoration: none;
+        }
+        a:link {
+            color: black; text-decoration: none;
+        }
+        div.wrapper {
+            display: grid;
+            grid-template-columns: 17% 77% 10%;
+            grid-template-rows: 100px 500px 100px;
+        }
+        
+        div.item1 {
+            grid-column: 1/3;
+            border-bottom: 4px solid black;     
+        }
+        div.item1>div.home>img {
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin: 5px 0 5px 50px
+        }
+        div.item1>div.text {
+            font-size: x-large;
+            font-weight: bold;
+            color: rgb(12, 75, 12);
+            float: left;
+            width: 100px;
+            height: 10px;
+            margin-left: 70px;
+            
+        }
+        div.item2 {
+            grid-column: 1/1;
+            background-color: rgb(12, 75, 12);
+            font-weight: bold;
+            padding-top: 30px;
+            padding-left: 10px;
+            font-size: 20px;
+        }
+        div.item2 li {
+            font-size: 14px;
+        }
+        div.item2 li:visited {
+            color: black; text-decoration: none;
+        }
+        div.item3 {
+            grid-column: 2/3;
+            background-color: rgb(255, 255, 255);
+        }
+        div.item3>img {
+            float: left;
+            margin: 20px;
+        }
+        div.item3>p {
+            display: inline-block;
+            background-color: rgb(213, 214, 213);
+        }
+        div ul, li {
+            background-color: rgb(12, 75, 12);
+            
+        }
+        div.item3>p:nth-child(2) {
+            margin-top: 30px;
+            margin-bottom: 90px;
+        }
+        div.item3>input {
+            margin-top: 12px;
+            width: 100px;
+            text-align: center;
+            background-color: gray;
+        }
+        div.item4 {
+            grid-column: 1/3;
+            background-color: rgb(206, 206, 206);
+            border-top: 4px solid black;
+        }
+        div.item4>a {
+            float: right;
+            width: 70px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="item item1">
+            <div class="home"><img src="../../images/스타벅스_심볼.png" alt=""></div>
+            <div class="text">
+                <h2>Starbucks</h2>
+            </div>
+        </div>
+        <div class="item item2">에스프레소
+            <ul>
+                <li><a href="america.html" style="background-color: rgb(12, 75, 12);">아메리카노</a></li><br>
+                <li><a href="iceame.html" style="background-color: rgb(12, 75, 12);">아이스 아메리카노</a></li><br>
+                <li>카라멜 아키아또</li><br>
+                <li>아이스 카라멜 아키아또</li><br>
+                <li>토피 넛 라떼</li><br>
+                <li>아이스 토피 넛 라떼</li><br>
+            </ul>
+        </div>
+        <div class="item item3">
+            <img src="../../images/카페 아메리카노.PNG" alt="">
+            <p style="font-size: 20px; font-weight: bold;">카페 아메리카노</p><br>
+            <p>뜨끈뜨끈하이 쳐직입니다.</p>
+            <br>
+            <p>4000원</p>
+            <br>
+            <input type="botton" value="바로구입">
+            <input type="botton" value="장바구니담기">
+        </div>
+        <div class="item item4">
+            <a href="login.html">Sing up</a>
+        </div>
+        
+    </div>
+</body>
+</html>

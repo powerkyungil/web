@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var div = document.createElement('div');
+    div.setAttribute('id', 'main');
+    var ulTag = document.createElement('ul');
+    var liTag = document.createElement('li');
+    liTag.textContent = 'Apple';
+    ulTag.appendChild(liTag); //<ul><li></li></ul>
+    div.appendChild(ulTag); // <div><ul><li>Apple</li></ul></div>
+    var bd = document.getElementsByTagName('body');
+    bd[0].appendChild(div);
+</script>
+<script src="dom.js"></script>
+</html>

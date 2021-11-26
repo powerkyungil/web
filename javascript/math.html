@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var num = 12.3;
+        // num = '-12.1'; // -12> ? > -13
+        // var result = Math.sign(num)
+        // console.log(Math.max(1, -4));
+        // console.log(Math.sqrt(2).toFixed(2)); //sqrt 제곱근을 나타냄
+        
+
+        // if(Math.sign(num) == 1) console.log('양수');
+        // else if(Math.sign(num) == -1) console.log('음수');
+        
+        // console.log(result);
+
+        // Math.random();
+        var uniqNum = [];
+        // for(i=0; i<5; i++) {
+        //     result = Math.floor(Math.random() * 6) + 1;
+        //     if(uniqNum.indexOf(result) != -1) {
+        //         i--;
+        //         continue;
+        //     }
+        //     console.log(`랜덤수:  ${result}`);
+        //     uniqNum.push(result);
+        // }
+        
+        // while(lnth < 3) {
+        //     result = Math.floor(Math.random() * 6) + 1;
+        //     if(uniqNum.indexOf(result) == -1) {
+        //         uniqNum.push(result)
+        //     }
+        //     lnth = uniqNum.length;
+        // } 
+        // console.log(uniqNum);
+
+        var lnth = uniqNum.length;
+        while(lnth < 6 ){
+            result = Math.floor(Math.random() * 1000) + 1;
+            if(uniqNum.indexOf(result) == -1) {
+                uniqNum.push(result);
+            }
+            lnth = uniqNum.length;
+        }
+        console.log(uniqNum);
+
+        //var lnth;
+        while(uniqNum.length < 6 ){
+            result = Math.floor(Math.random() * 1000) + 1;
+            if(uniqNum.indexOf(result) == -1) {
+                uniqNum.push(result);
+                // lnth = uniqNum.length;
+
+            }
+        }
+        console.log(uniqNum);
+
+
+        // uniqNum.sort(function() {
+        //     if( a < b) {
+        //         return 1;
+        //     } else {
+        //         return -10;
+        //     }
+        // });
+        // console.log(uniqNum);
+
+        // var numbers = new Set();
+        // while(numbers.size < 3) {
+        //     numbers.add(Math.floor(Math.random() * 6) + 1);
+        // }
+
+        // // result = numbers.values();
+        // // console.log(result);
+
+        // numbers.forEach(item => {
+        //     console.log(item);
+        // });
+
+    </script>
+</body>
+</html>
